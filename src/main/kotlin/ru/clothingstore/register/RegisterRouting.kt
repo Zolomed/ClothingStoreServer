@@ -16,7 +16,7 @@ class RegisterRouting {
 fun Application.configureRegisterRouting() {
     routing {
 
-        post("/register") {
+        post("/reg") {
 
             val receive  = call.receive<RegisterReceiveRemote>()
             if(!isValidPhone(receive.phone)){

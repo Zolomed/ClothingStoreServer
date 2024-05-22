@@ -22,12 +22,7 @@ fun main() {
 
 fun Application.module() {
     configureSerialization()
-    routing {
-        get("/") {
-            val test = Test("Hello World")
-            call.respond(test)
-        }
-    }
+    configureRouting()
     configureLoginRouting()
     configureRegisterRouting()
 

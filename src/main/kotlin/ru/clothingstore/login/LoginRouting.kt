@@ -14,7 +14,7 @@ class LoginRouting {
 
 fun Application.configureLoginRouting() {
     routing {
-        post("/login") {
+        post("/log") {
             val receive = call.receive<LoginReceiveRemote>()
             val first = InMemoryCache.userList.firstOrNull() { it.phone == receive.phone }
 
