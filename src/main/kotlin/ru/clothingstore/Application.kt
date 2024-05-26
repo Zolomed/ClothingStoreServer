@@ -1,23 +1,34 @@
 package ru.clothingstore
 
+import com.typesafe.config.ConfigFactory
 import io.ktor.server.application.*
 import io.ktor.server.cio.*
 import io.ktor.server.engine.*
-import io.ktor.server.response.*
-import io.ktor.server.routing.*
-import kotlinx.serialization.Serializable
+import org.jetbrains.exposed.sql.Database
 import ru.clothingstore.login.configureLoginRouting
 import ru.clothingstore.plugins.*
 import ru.clothingstore.register.configureRegisterRouting
 
-@Serializable
-data class Test(
-    val text: String
-)
-
 fun main() {
-    embeddedServer(CIO, port = 8080, host = "0.0.0.0", module = Application::module)
-        .start(wait = true)
+    val config = ConfigFactory.load("application.properties")
+
+    val dbUrl = config.getString("database.url")
+    val dbUser = config.getString("database.user")
+    val dbPassword = config.getString("database.password")
+
+    Database.connect(
+        url = dbUrl,
+        driver = "org.postgresql.Driver",
+        user = dbUser,
+        password = dbPassword
+    )
+
+    embeddedServer(
+        CIO,
+        port = 8080,
+        host = "0.0.0.0",
+        module = Application::module
+    ).start(wait = true)
 }
 
 fun Application.module() {
@@ -25,5 +36,4 @@ fun Application.module() {
     configureRouting()
     configureLoginRouting()
     configureRegisterRouting()
-
 }

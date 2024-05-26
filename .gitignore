@@ -1,5 +1,7 @@
 .gradle
+.kotlin
 build/
+application.properties
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
