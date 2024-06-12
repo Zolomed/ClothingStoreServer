@@ -1,4 +1,4 @@
-package ru.clothingstore.login
+package ru.clothingstore.features.login
 
 import io.ktor.server.application.*
 import io.ktor.server.routing.*

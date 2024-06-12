@@ -1,6 +1,6 @@
 package ru.clothingstore.database.users
 
-class UserDTO (
+data class UserDTO (
     val phone: String,
     val password: String,
 )

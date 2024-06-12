@@ -1,4 +1,4 @@
-package ru.clothingstore.register
+package ru.clothingstore.features.register
 
 import io.ktor.http.*
 import io.ktor.server.application.*

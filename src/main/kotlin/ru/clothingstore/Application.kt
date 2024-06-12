@@ -5,9 +5,10 @@ import io.ktor.server.application.*
 import io.ktor.server.cio.*
 import io.ktor.server.engine.*
 import org.jetbrains.exposed.sql.Database
-import ru.clothingstore.login.configureLoginRouting
+import ru.clothingstore.features.items.configureItemsRouting
+import ru.clothingstore.features.login.configureLoginRouting
 import ru.clothingstore.plugins.*
-import ru.clothingstore.register.configureRegisterRouting
+import ru.clothingstore.features.register.configureRegisterRouting
 
 fun main() {
     val config = ConfigFactory.load("application.properties")
@@ -36,4 +37,5 @@ fun Application.module() {
     configureRouting()
     configureLoginRouting()
     configureRegisterRouting()
+    configureItemsRouting()
 }

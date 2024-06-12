@@ -1,6 +1,6 @@
 package ru.clothingstore.database.tokens
 
-class TokenDTO (
+data class TokenDTO (
     val phone: String,
     val token: String,
 )
